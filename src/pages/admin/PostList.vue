@@ -1,8 +1,6 @@
-<script setup>
-</script>
 
 <template>
-    <div class="main-admin">
+    <div class="main-admin">    
         <div class="tool-admin">
             <button class="btn-add"><router-link to="/admin/post-add">Thêm</router-link></button>
             
@@ -11,18 +9,20 @@
             <table>
                 <tr>
                     <th>Tên bài viết</th>
-                    <th>Tác giả</th>
+                    <th>URL ảnh tác giả</th>
+                    <th>Nội dung</th>
                     <th>Ngày tạo</th>
                     <th class="tool-header">Công cụ</th>
                 </tr>
-                <tr v-for="index in 10" class="one-post">
-                    <td>How to succeed with marketing content?</td>
-                    <td>Linh</td>
-                    <td>February 24, 2016</td>
+                <tr v-for="(post) in listPost">
+                    <td>{{post.title}}</td>
+                    <td>{{post.author}}</td>
+                    <th>{{post.shortDecription}}</th>
+                    <td>{{post.date}}</td>
                     <td class="tool-header">
                         <div class="tool">
-                            <div class="edit">Sửa</div>
-                            <div class="delete">Xóa</div>
+                            <div class="edit"><button>Sửa</button></div>
+                            <div class="delete"><button>Xóa</button></div>
                         </div>
                     </td>
                 </tr>
@@ -30,6 +30,19 @@
         </div>
     </div>
 </template>
+<script setup>
+import {ref } from 'vue';
+import axios from "axios";
+const listPost = ref([]);
+const getData = function () {
+    axios.get('http://localhost:3000/posts')
+      .then(function (response) {
+        listPost.value = response.data;
+        console.log(listPost.value)
+      });
+}
+getData();
+</script>
 
 <style scoped>
 .main-admin {
@@ -64,8 +77,8 @@
 
 .tool>* {
     width: 43px;
-    border: 1px solid gray;
-    text-align: center;
+    /* border: 1px solid gray;
+    text-align: center; */
 }
 
 .tool-header {
