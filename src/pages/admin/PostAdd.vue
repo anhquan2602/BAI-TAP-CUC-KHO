@@ -5,6 +5,9 @@
             <input type="text" placeholder="Nhập tên bài viết" v-model="name">
         </div>
         <div class="image-author">
+            <input type="text" placeholder="Nhập link ảnh tác giả" v-model="author">
+        </div>
+        <div class="image-post">
             <input type="text" placeholder="Nhập link ảnh" v-model="author">
         </div>
         <div class="content">
@@ -13,7 +16,7 @@
         <div class="date">
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
-        <div class="add"><BUtton @click="addButton">Thêm</BUtton></div>
+        <div class="add"><BUtton @click="addButton(post)">Thêm</BUtton></div>
     </div>
 </template>
 <script setup>
@@ -23,14 +26,9 @@ const name = ref('')
 const author = ref('')
 const content = ref('')
 const date = ref('')
-const addButton = function () {
-    axios.post('http://localhost:3000/posts', {
-        date: JSON.parse(JSON.stringify({name})),
-        title: "How to succeed with marketing content?",
-        author: "https://secure.gravatar.com/avatar/?s=32&d=mm&r=g",
-        image: "https://demo.theme-junkie.com/beginner/files/2016/02/happy-680x380.jpg",
-        shortDecription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie molestie nisl, eu scelerisque turpis tempus at. Nam luctus ultrices imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse velit orci, pretium ut feugiat nec, lobortis et est. Nullam cursus ultrices tincidunt. Nam gravida sem gravida ipsum dignissim in"
-    })
+const postAdd = ref([]);
+const addButton = function () { 
+    axios.post('http://localhost:3000/posts', post)
         .then(function (response) {
             console.log(response);
         });

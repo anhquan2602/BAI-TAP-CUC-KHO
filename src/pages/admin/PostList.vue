@@ -3,13 +3,13 @@
     <div class="main-admin">    
         <div class="tool-admin">
             <button class="btn-add"><router-link to="/admin/post-add">Thêm</router-link></button>
-            
         </div>
         <div class="list-post">
             <table>
                 <tr>
                     <th>Tên bài viết</th>
                     <th>URL ảnh tác giả</th>
+                    <th>URL hình ảnh</th>
                     <th>Nội dung</th>
                     <th>Ngày tạo</th>
                     <th class="tool-header">Công cụ</th>
@@ -17,6 +17,7 @@
                 <tr v-for="(post) in listPost">
                     <td>{{post.title}}</td>
                     <td>{{post.author}}</td>
+                    <td>{{post.image}}</td>
                     <th>{{post.shortDecription}}</th>
                     <td>{{post.date}}</td>
                     <td class="tool-header">
@@ -49,9 +50,6 @@ getData();
     width: 1200px;
     margin: 0 auto;
 }
-
-.main-admin .list-post {}
-
 .main-admin .list-post table {
     width: 100%;
     border-collapse: collapse;

@@ -1,120 +1,129 @@
-<script setup>
-import {ref } from 'vue';
-import axios from "axios";
-import categories from "../menu bar/categories.vue"
-import follow from "../menu bar/follow.vue"
-const arrPost = ref([]);
-const initData = function () {   
-   callApi();
-}
-const callApi = function () {
-   axios.get('http://localhost:3000/posts')
-      .then(function (response) {
-         arrPost.value = response.data;
-      });
-}
-
-initData();
-</script>
-
 <template>
     <div id="home-page">
         <div class="main-header">
             <div class="content-header">
-                <div class="menu-heaher">
+                <div class="menu-header-left">
                     <ul class="list-menu">
-                        <li>Home</li>
-                        <li>Deal </li>
-                        <li>Features</li>
-                        <li>Mega menu post</li>
-                        <li>Categories</li>
-                        <li>Skin</li>z
+                        <li> <a href=""><font-awesome-icon icon="fa-solid fa-house" /> Home</a></li>
+                        <li> <a href="">$ Deal <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                    style="font-size:12px" /></a></li>
+                        <li> <a href=""> Features <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                    style="font-size:12px" /></a></li>
+                        <li> <a href=""> Mega menu post <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                    style="font-size:12px" /></a></li>
+                        <li> <a href=""> Categories <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                    style="font-size:12px" /></a></li>
+                        <li> <a href=""> Skin <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                    style="font-size:12px" /></a></li>
                     </ul>
                 </div>
-                <div class="icon-header">
-                    <div class="image-icon">
-                        <img src="https://toppng.com/uploads/preview/twitter-logo-vector-grey-11549680332eye4q1nix2.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/59/59439.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174851.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://cdn.icon-icons.com/icons2/2066/PNG/512/instagram_icon_125245.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1051/1051329.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://w7.pngwing.com/pngs/277/988/png-transparent-social-media-computer-icons-linkedin-black-angle-text-logo.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/49/49323.png"
-                            alt="">
-                    </div>
-                    <div class="image-icon">
-                        <img src="https://play-lh.googleusercontent.com/U7UWPVBX9xyih10l20bOQIUUvZZ0dSXVlyCNogX8hEPVWvP14ZDKmK_LzHw6VaIquPg"
-                            alt="">
-                    </div>
+                <div class="menu-header-right">
+                    <a href="" class="icon-twitter"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png"
+                            alt=""></a>
+                    <a href="" class="icon-facebook"><img
+                            src="https://www.unipile.com/wp-content/uploads/2022/06/logo-facebook-noir.png" alt=""></a>
+                    <a href="" class="icon-google"><img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj9uaFShAv2D-vHYv8tmW6G3LHW9Y_f7VzSA&usqp=CAU"
+                            alt=""></a>
+                    <a href="" class="icon-instagram"><img
+                            src="https://i.pinimg.com/736x/21/d6/7f/21d67f1d6b3be5bb2e39395311c77fc6.jpg" alt=""></a>
+                    <a href="" class="icon-linkin"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png"
+                            alt=""></a>
+                    <a href="" class="icon-wifi"><img
+                            src="https://static.vecteezy.com/system/resources/previews/002/261/140/original/wifi-icon-wireless-internet-isolate-on-transparent-background-illustration-free-vector.jpg"
+                            alt=""></a>
                 </div>
+                <div class="icon-header"></div>
             </div>
         </div>
         <div class="main-site">
             <div class="main-sider-content">
                 <div class="header-site">
-                    <div class="header-site-image"><img src="	https://demo.theme-junkie.com/beginner/files/2016/02/logo.png" alt=""></div>
+                    <div class="logo-left"><img src="https://demo.theme-junkie.com/beginner/files/2016/02/logo.png"
+                            alt=""></div>
+                    <div class="logo-right"><img
+                            src="https://demo.theme-junkie.com/beginner/files/2016/02/beginner-728x90.png" alt=""></div>
                 </div>
                 <div class="main-menu">
-                    <ul class="list-menu">
-                        <li>Home</li>
-                        <li>Deal </li>
-                        <li>Features</li>
-                        <li>Mega menu post</li>
-                        <li>Categories</li>
-                        <li>Skin</li>z
-                    </ul>
-                    <div class="search">
-                        <input type="text" placeholder="  Search for...">
+                    <div class="menu-header-left">
+                        <ul class="list-menu">
+                            <li> <a href=""><font-awesome-icon icon="fa-solid fa-house" /> Home</a></li>
+                            <li> <a href="">$ Deal <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                        style="font-size:12px" /></a></li>
+                            <li> <a href=""> Features <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                        style="font-size:12px" /></a></li>
+                            <li> <a href=""> Mega menu post <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                        style="font-size:12px" /></a></li>
+                            <li> <a href=""> Categories <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                        style="font-size:12px" /></a></li>
+                            <li> <a href=""> Skin <font-awesome-icon icon="fa-solid fa-chevron-down"
+                                        style="font-size:12px" /></a></li>
+                        </ul>
                     </div>
+                    <input type="text" class="input" name="" id="" placeholder="Search">
+                    <div class="btn-search"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></div>
+
+                </div>
+                <div class="main-validate">
+                    <div class="title-top">
+                        <h1>DOWNLOAD YOUR FREE E-BOOK</h1>
+                    </div>
+                    <div class="title-mid">
+                        <h3>Sign Up Today for Free!</h3>
+                    </div>
+                    <div class="title-bot"><span>The form works with any Email Marketing sites such as MailChimp,
+                            AWeber, etc.</span></div>
+                    <div class="form">
+                        <input type="text" name="" id="" class="name" placeholder="Your Name">
+                        <input type="text" name="" id="" class="name" placeholder="Your Email">
+                        <button class="signup">SIGN UP</button>
+                    </div>
+
                 </div>
                 <div class="main-content">
                     <div class="main-content-left">
                         <div class="list-post">
-                            <div class="one-post" v-for="(post, index) in arrPost" >
-                                <div class="title">{{post.title}}</div>
-                                <div class="more-description">
-                                    <img class="avatar-author" :src="post.author"
-                                        alt="">
-                                    <div class="in-category">In: Đời sống</div>
-                                    <div class="time-post">Last Updated: February 24, 2016</div>
-                                </div>
-                                <div class="fearture-image">
-                                    <img :src="post.image"
-                                        alt="">
-                                </div>
-                                <div class="short-description">
-                                    {{post.shortDecription}}
-                                </div>
-                                <div class="read-more">
-                                    <div class="read-more-btn">Đọc thêm</div>
-                                </div>
-                            </div>
+                            <Post v-for="post in arrPost" :post="post" />
                         </div>
                     </div>
                     <div class="main-side-bar">
-                        <div class="box-sider-bar">
-                           <div> <categories/></div>
+                        <div class="box-sider-bar 2">
+                            <div class="advertise">
+                                <Advertise />
+                            </div>
+
                         </div>
-                        <div class="box-sider-bar">
-                           <div> <follow/></div>
+                        <div class="box-sider-bar 1">
+                            <div class="categories">
+                                <Categories />
+                            </div>
+                        </div>
+                        <div class="box-sider-bar 3">
+                            <div class="follow">
+                                <Follow />
+                            </div>
+
+
+                        </div>
+                        <div class="box-sider-bar 4">
+                            <div class="join">
+                                <Join />
+                            </div>
+
+
+                        </div>
+                        <div class="box-sider-bar 5">
+                            <div class="popular">
+                                <Popular />
+                            </div>
+
+
+                        </div>
+                        <div class="box-sider-bar 6">
+                            <div class="viewed">
+                                <Viewed />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,115 +131,295 @@ initData();
         </div>
     </div>
 </template>
+<script setup>
+import { ref } from 'vue';
+import axios from "axios";
+import Categories from "../sider-bar/Categories.vue"
+import Advertise from "../sider-bar/Advertise.vue"
+import Follow from "../sider-bar/Follow.vue"
+import Join from "../sider-bar/Join.vue"
+import Popular from "../sider-bar/Popular.vue"
+import Viewed from "../sider-bar/Viewed.vue"
+import Post from "./Post.vue"
+const arrPost = ref([]);
+const initData = function () {
+    callApi();
+}
 
+const callApi = function () {
+    axios.get('http://localhost:3000/posts')
+        .then(function (response) {
+            arrPost.value = response.data;
+            console.log(response.data)
+        });
+}
+
+initData();
+</script>
 <style scoped>
-.header-site-image {
-    width: 60px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.icon-header {
-    height: 100%;
-    display: flex;
-    width: 320px;
+.btn-search {
+    font-size: 18px;
+    background: rgba(236, 236, 236);
+
+    height: 30px;
+    padding: 3px;
 }
 
-.icon-header .image-icon {
-    align-items: center;
-    display: flex;
-    width: 40px;
-    height: 100%;
-    justify-content: center;
+.main-header {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    z-index: 99999;
 }
 
-.icon-header .image-icon img {
-    margin: 7px;
-    object-fit: cover;
-    width: 50%;
-    height: 50%;
-}
-
-.main-header.main-sider-content {
-    width: 80%;
-    margin: 0 auto;
+.list-menu .fa-house {
+    font-size: 12px;
 }
 
 .main-sider-content {
-    width: 70%;
+    width: 1060px;
     margin: 0 auto;
 }
-.main-header {
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-    background: rgb(252 252 252);
+
+.menu-header-left ul li {
+    float: left;
+    padding-left: 10px;
+}
+
+.menu-header-left {
+    flex: 1;
+}
+
+.form {
+    margin-top: 30px;
+
+}
+
+.form .name {
+    width: 180px;
     height: 40px;
-    position: relative;
-    display: block;
+    padding: 0 10px;
+    margin: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.main-header {
+    background: rgb(255, 255, 255);
+    height: 40px;
 }
 
 .content-header {
-    height: 100%;
     display: flex;
-    width: 70%;
+    align-items: center;
+    height: 100%;
+    width: 1060px;
     margin: 0 auto;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.menu-header-right img {
+    width: 16px;
+    height: 16px;
+    color: black;
+    opacity: 0.5;
+
+}
+
+.menu-header-right a {
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+}
+
+.menu-header-right {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+
+}
+
+.input {
+    box-shadow: rgb(0, 0, 0, 0.1) 0px 1px 1px 0px inset;
+
+    transition: 0.3s ease;
+}
+
+.input {
+    background: rgba(236, 236, 236);
+    border: none;
+    outline: none;
+    width: 110px;
+    height: 30px;
+    padding: 3px 30px 3px 8px;
+    font-size: 16px;
+}
+
+.input:hover {
+    width: 136px;
+    background: #e9e9e9;
+
+
+}
+
+.signup {
+    height: 40px;
+    width: 200px;
+    background: #52b043;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 550;
+}
+
+.main-validate {
+    margin-top: 15px;
+    background: rgba(240, 240, 240, 255);
+    width: 1060px;
+    height: 240px;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.main-validate h1 {
+    color: white;
+    font-size: 23px;
+    font-weight: 550;
+
+
+}
+
+.main-validate .title-top {
+    background: #368dd5;
+    width: 100%;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-validate .title-mid {
+    margin-top: 20px;
+}
+
+.main-validate h3 {
+    font-weight: 550;
+
+}
+
+.main-validate .title-bot {
+    margin-top: 20px;
+}
+
+.main-validate .title-bot span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+
+
+/* .menu-header-right .icon{
+    width: 24px;
+    height: 24px;
+} */
+.menu-header-right a:hover {
+    background: #fafafa;
+}
+
+.content-header ul li {
+    padding: 10px;
+}
+
+.content-header li a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.content-header li a:hover {
+    opacity: 1;
+
 }
 
 .header-site {
-    height: 150px;
-    background: rgb(252, 252, 252);
-}
-
-.menu-heaher {
-    flex: 1;
-    height: 100%;
-    width: 40%;
+    padding-top: 25px;
     display: flex;
+    height: 132px;
+    /* background: pink; */
     align-items: center;
 }
 
-ul li {
-    float: left;
-    display: flex;
-    list-style: none;
-    color: #5c5c5c;
-}
-
-ul li:not(:first-child) {
-    margin-left: 19px;
-}
-
-ul.list-menu {
-    text-align: center;
-    display: flex;
-    height: 100%;
-    align-items: center;
+.header-site .logo-left {
+    width: 300px;
+    height: 90px;
     flex: 1;
 }
 
-.menu-heaher.list-menu {
-    width: 30px;
-    height: 100px;
+.header-site .logo-right {
+    width: 728px;
+    height: 90px;
 }
+
+.header-site .logo-left:hover {
+    width: 300px;
+    height: 90px;
+    flex: 1;
+    cursor: pointer;
+}
+
+.header-site .logo-right:hover {
+    width: 728px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.main-sider-content {}
 
 .main-menu {
-    height: 70px;
-    background: rgb(252 252 252);
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
     display: flex;
-}
-.search {
-    display: flex;
-    height: 100%;
     align-items: center;
-    justify-content: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 53px;
+
 }
 
-.search input {
-    height: 40px;
-    background-color: #efefef;
-    border: none;
+.main-menu .menu-header-left {
+    width: 800px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    height: 100%;
 }
+
+.main-menu ul li {
+    padding: 10px 20px;
+}
+
+.main-menu li a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.8;
+    font-size: 20px;
+}
+
+.main-menu li a:hover {
+    opacity: 1;
+
+}
+
 .main-content {
     display: flex;
     justify-content: space-between;
@@ -238,11 +427,11 @@ ul.list-menu {
 }
 
 .main-content .main-content-left {
-    flex: 1;
+    width: 700px;
 }
 
 .main-content .main-side-bar {
-    width: 400px;
+    width: 340px;
     margin-left: 30px;
 }
 
@@ -255,14 +444,16 @@ ul.list-menu {
 }
 
 .title {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .more-description {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    opacity: 0.4;
 }
 
 .more-description img.avatar-author {
@@ -305,6 +496,6 @@ ul.list-menu {
 
 .box-sider-bar {
     border: 1px solid var(--border);
-    padding: 10px;
+    /* padding: 10px; */
 }
 </style>
