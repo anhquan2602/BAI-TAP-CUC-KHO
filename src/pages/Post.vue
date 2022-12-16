@@ -20,7 +20,7 @@
     </div>
 </template>
 <script setup>
-defineProps({
+const props = defineProps<{
     post: {
         id: Number,
         title: String,
@@ -29,7 +29,8 @@ defineProps({
         image: String,
         shortDecription: String
     }
-})
+}>(post)
+
 </script>
 <style scoped>
 .list-post .one-post {

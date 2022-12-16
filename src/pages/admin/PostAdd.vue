@@ -8,7 +8,7 @@
             <input type="text" placeholder="Nhập link ảnh tác giả" v-model="author">
         </div>
         <div class="image-post">
-            <input type="text" placeholder="Nhập link ảnh" v-model="author">
+            <input type="text" placeholder="Nhập link ảnh" v-model="image">
         </div>
         <div class="content">
             <input type="text" placeholder="Nội dung" v-model="content">
@@ -16,24 +16,34 @@
         <div class="date">
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
-        <div class="add"><BUtton @click="addButton(post)">Thêm</BUtton></div>
+        <div class="add"><BUtton @click="addButton()">Thêm</BUtton></div>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue';
+import { unref } from 'vue';
 import axios from "axios";
 const name = ref('')
 const author = ref('')
 const content = ref('')
 const date = ref('')
-const postAdd = ref([]);
-const addButton = function () { 
-    axios.post('http://localhost:3000/posts', post)
+const image = ref('')
+
+const addButton = function () {
+    console.log(name)
+    axios.post('http://localhost:3000/posts', {
+        title: unref(name),
+        author: unref(author),
+        image: unref(image),
+        shortDecription: unref(content),
+        date: unref(date)
+    })
         .then(function (response) {
-            console.log(response);
+            let arrTemp = JSON.parse(JSON.stringify(response.data))
+            console.log(arrTemp.id)
         });
 }
-</script>
+</script>   
 <style >
 .form-add {
     top: 100px;

@@ -1,6 +1,6 @@
 
 <template>
-    <div class="main-admin">    
+    <div class="main-admin">
         <div class="tool-admin">
             <button class="btn-add"><router-link to="/admin/post-add">Thêm</router-link></button>
         </div>
@@ -15,15 +15,15 @@
                     <th class="tool-header">Công cụ</th>
                 </tr>
                 <tr v-for="(post) in listPost">
-                    <td>{{post.title}}</td>
-                    <td>{{post.author}}</td>
-                    <td>{{post.image}}</td>
-                    <th>{{post.shortDecription}}</th>
-                    <td>{{post.date}}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.image }}</td>
+                    <th>{{ post.shortDecription }}</th>
+                    <td>{{ post.date }}</td>
                     <td class="tool-header">
                         <div class="tool">
                             <div class="edit"><button>Sửa</button></div>
-                            <div class="delete"><button>Xóa</button></div>
+                            <div class="delete"><button @click="deletePost">Xóa</button></div>
                         </div>
                     </td>
                 </tr>
@@ -32,17 +32,22 @@
     </div>
 </template>
 <script setup>
-import {ref } from 'vue';
+import { ref } from 'vue';
 import axios from "axios";
 const listPost = ref([]);
 const getData = function () {
     axios.get('http://localhost:3000/posts')
-      .then(function (response) {
-        listPost.value = response.data;
-        console.log(listPost.value)
-      });
+        .then(function (response) {
+            listPost.value = response.data;
+            console.log(listPost.value)
+        });
 }
 getData();
+
+const deletePost = function () {
+    getData();
+    
+}
 </script>
 
 <style scoped>
@@ -50,6 +55,7 @@ getData();
     width: 1200px;
     margin: 0 auto;
 }
+
 .main-admin .list-post table {
     width: 100%;
     border-collapse: collapse;
@@ -62,7 +68,8 @@ getData();
     border: 1px solid gray;
 }
 
-.main-admin .list-post td, .main-admin .list-post th{
+.main-admin .list-post td,
+.main-admin .list-post th {
     height: 40px;
     padding: 10px;
 }
@@ -83,11 +90,11 @@ getData();
     width: 100px;
 }
 
-.tool-admin{
+.tool-admin {
     margin: 10px 0;
 }
 
-.btn-add{
+.btn-add {
     height: 40px;
     width: 100px;
 }
