@@ -1,11 +1,11 @@
 <template >
-    <div class="list-post" >
+    <div class="list-post">
         <div class="one-post">
             <div class="title">{{ post.title }}</div>
             <div class="more-description">
                 <img class="avatar-author" :src="post.author" alt="">
                 <div class="in-category">In: Đời sống</div>
-                <div class="time-post">Last Updated: February 24, 2016</div>
+                <div class="time-post">{{ post.date }}</div>
             </div>
             <div class="fearture-image">
                 <img :src="post.image" alt="">
@@ -20,16 +20,17 @@
     </div>
 </template>
 <script setup>
-const props = defineProps<{
+const props = defineProps({
     post: {
         id: Number,
         title: String,
         date: String,
         author: String,
         image: String,
-        shortDecription: String
+        shortDecription: String,
+        date: String
     }
-}>(post)
+})
 
 </script>
 <style scoped>
@@ -38,11 +39,13 @@ const props = defineProps<{
     border: 1px solid var(--border);
     margin-bottom: 20px;
 }
+
 .title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .more-description {
     display: flex;
     margin-bottom: 10px;
@@ -56,6 +59,7 @@ const props = defineProps<{
 .more-description>* {
     margin-right: 10px;
 }
+
 .fearture-image {
     width: 100%;
     height: 400px;
@@ -70,6 +74,7 @@ const props = defineProps<{
 .short-description {
     padding: 10px 0;
 }
+
 .read-more-btn {
     background-color: #c21a30;
     border-radius: 2px;

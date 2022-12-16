@@ -16,7 +16,7 @@
         <div class="date">
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
-        <div class="add"><BUtton @click="addButton()">Thêm</BUtton></div>
+        <div class="add"><router-link to="/"><BUtton @click="addButton()">Thêm</BUtton></router-link></div>
     </div>
 </template>
 <script setup>

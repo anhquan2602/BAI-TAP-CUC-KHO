@@ -23,7 +23,7 @@
                     <td class="tool-header">
                         <div class="tool">
                             <div class="edit"><button>Sửa</button></div>
-                            <div class="delete"><button @click="deletePost">Xóa</button></div>
+                            <div class="delete"><button @click="deletePost(post)">Xóa</button></div>
                         </div>
                     </td>
                 </tr>
@@ -44,9 +44,14 @@ const getData = function () {
 }
 getData();
 
-const deletePost = function () {
+const deletePost = function (post) {
+    axios.delete(`http://localhost:3000/posts/${post.id}`)
+    .then(function (response){
+        let arrTemp = JSON.parse(JSON.stringify(response.data));
+        arrTemp.splice(1, post.id)
+        axios.put(`http://localhost:3000/posts/${post.id}`, arrTemp)
+    });
     getData();
-    
 }
 </script>
 
