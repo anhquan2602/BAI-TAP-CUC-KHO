@@ -1,14 +1,14 @@
 <template>
     <div class="categories">
         <div class="title">CATEGORIES</div>
-        <span><font-awesome-icon icon="fa-solid fa-xmark" /> Affiliate(2)</span>
-        <span><font-awesome-icon icon="fa-solid fa-blog" />  Blogging (4)</span>
-        <span><font-awesome-icon icon="fa-solid fa-g" />  Google Adsense (4)</span>
-        <span><font-awesome-icon icon="fa-solid fa-wifi" /> Marketing (4)</span>
-        <span><font-awesome-icon icon="fa-solid fa-magnifying-glass" /> SEO (2)</span>
-        <span><font-awesome-icon icon="fa-solid fa-gear" />  Hacks & Tips (4)</span>
-        <span><font-awesome-icon icon="fa-solid fa-bars" /> Web Hosting (2)</span>
-        <span><font-awesome-icon icon="fa-solid fa-w" />  WordPress (2)</span>
+        <span><font-awesome-icon icon="fa-solid fa-xmark" /> <router-link :to="``">Affiliate</router-link></span>
+        <span><font-awesome-icon icon="fa-solid fa-blog" />  Blogging </span>
+        <span><font-awesome-icon icon="fa-solid fa-g" />  Google Adsense </span>
+        <span><font-awesome-icon icon="fa-solid fa-wifi" /> Marketing </span>
+        <span><font-awesome-icon icon="fa-solid fa-magnifying-glass" /> SEO </span>
+        <span><font-awesome-icon icon="fa-solid fa-gear" />  Hacks & Tips </span>
+        <span><font-awesome-icon icon="fa-solid fa-bars" /> Web Hosting </span>
+        <span><font-awesome-icon icon="fa-solid fa-w" />  WordPress</span>
     </div>
   
 </template>
@@ -17,7 +17,10 @@
 
 </script>
 
-<style scoped>
+<style scoped> 
+a.router-link-active.router-link-exact-active {
+    text-decoration: none;
+}
 .categories{
     height: 300px;
     padding: 20px;

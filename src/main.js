@@ -2,10 +2,12 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from './components/Home.vue';
 import HomePage from './pages/HomePage.vue';
+import Detail from './pages/Detail.vue';
+import Layouts from './layouts/Layouts.vue';
 import AdminPage from './pages/AdminPage.vue';
-import PostList from './pages/admin/PostList.vue';
+import PostList from './pages/admin/PostList/PostList.vue';
+import PostUpdate from './pages/admin/PostList/_id.vue';
 import PostAdd from './pages/admin/PostAdd.vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -17,12 +19,20 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 /* add some free styles */
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 const routes = [
-    { path: '/', component: HomePage },
     {
-        path: '/admin', component: AdminPage,   
+        path: '/', component: Layouts,
+        children: [
+            {path: "/", component: HomePage},
+            {path: "/detail/:id", component: Detail},
+        ]
+    },
+    {
+        path: '/admin', component: AdminPage,
         children: [
             { path: '', component: PostList },
+            { path: ':id', component: PostUpdate },
             { path: 'post-add', component: PostAdd }
         ]
     },
@@ -39,4 +49,5 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 library.add(fas)
 library.add(faUserSecret)
 library.add(faTwitter)
+app.use(CKEditor);
 app.mount('#app')

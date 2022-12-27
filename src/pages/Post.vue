@@ -1,7 +1,7 @@
 <template >
     <div class="list-post">
         <div class="one-post">
-            <div class="title">{{ post.title }}</div>
+            <div class="title"><router-link :to="`/detail/${post.id}`">{{ post.title }}</router-link></div>
             <div class="more-description">
                 <img class="avatar-author" :src="post.author" alt="">
                 <div class="in-category">In: Đời sống</div>
