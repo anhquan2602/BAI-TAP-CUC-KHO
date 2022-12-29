@@ -11,21 +11,13 @@
             <input type="text" placeholder="Nhập link ảnh" v-model="image">
         </div>
         <div class="content">
-            <input type="text" placeholder="Nội dung" v-model="content">
+            <ckeditor :editor="editor" v-model="content" :config="editorConfig"></ckeditor>
         </div>
         <div class="date">
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
         <div class="combobox">
-            <div class="combobox">
-                <select name="categories" id="cate" v-model ="categories">
-                    <option value="1" data-foo="Affiliate">Affiliate</option>
-                    <option value="2" data-foo="Blogging">Blogging</option>
-                    <option value="3" data-foo="Google Adsense">Google Adsense</option>
-                    <option value="4" data-foo="Marketing"> Marketing</option>
-                    <option value="5" data-foo="Hacks & Tips">Hacks & Tips</option>
-                </select>
-            </div>
+            <Combobox :cate="categories"/>
         </div>
         <div class="add"><router-link to="/"><BUtton @click="addButton()">Thêm</BUtton></router-link></div>
     </div>
@@ -34,23 +26,24 @@
 import { ref } from 'vue';
 import { unref } from 'vue';
 import axios from "axios";
-// import Combobox from "../../modal/Combobox.vue"
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Combobox from '../../modal/Combobox.vue';
+const editor = ClassicEditor;
+const editorConfig = {};
 const name = ref('')
 const author = ref('')
 const content = ref('')
 const date = ref('')
 const image = ref('')
-const categories = ref('')
+const categories = ref('');
 const addButton = function () {
-
-    console.log(categories.value)
     axios.post('http://localhost:3000/posts', {
         title: name.value,
         author: author.value,
         image: image.value,
         shortDecription: content.value,
         date: date.value,
-        categories: categories.value
+        categories : categories.value
     })
         .then(function (response) {
             let arrTemp = JSON.parse(JSON.stringify(response.data))
@@ -61,7 +54,7 @@ const addButton = function () {
 
 </script>   
 <style >
-.combobox > * {
+.combobox>* {
     font-size: 15px;
     text-align: center;
     height: 40px;
@@ -69,8 +62,15 @@ const addButton = function () {
     color: #4d5257;
     font-family: 'Roboto';
 }
+
+.add button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-add {
-    top: 100px;
+    top: 30px;
     position: relative;
     margin: auto;
     width: 30%;
@@ -79,31 +79,31 @@ const addButton = function () {
     background-color: antiquewhite;
 }
 
+.form-add>* {
+    padding: 5px;
+    margin-right: 10px;
+}
+
 .form-add h3 {
     display: flex;
     justify-content: center;
 }
 
-.form-add>* {
+.form-add>.title-add {
     padding-bottom: 10px;
     margin: 0 auto;
     display: flex;
 }
 
 .form-add input {
-    width: 350px;
+    width: 100%;
+    height: 45px;
+    padding-left: 8px;
 }
 
-.form-add>*>* {
-    padding: 10px;
-    margin: 0 auto;
-    display: flex;
-    width: 40%;
-}
 
-.add button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.ck-editor__editable {
+    min-height: 300px;
 }
 </style>

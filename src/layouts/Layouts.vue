@@ -132,7 +132,7 @@
 <script setup>
 import { ref } from 'vue';
 
-import Categories from "../sider-bar/Categories.vue"
+import Categories from "../pages/Categories/Categories.vue"
 import Advertise from "../sider-bar/Advertise.vue"
 import Follow from "../sider-bar/Follow.vue"
 import Join from "../sider-bar/Join.vue"

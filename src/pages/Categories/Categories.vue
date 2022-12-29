@@ -1,20 +1,21 @@
 <template>
     <div class="categories">
         <div class="title">CATEGORIES</div>
-        <span><font-awesome-icon icon="fa-solid fa-xmark" /> <router-link :to="``">Affiliate</router-link></span>
-        <span><font-awesome-icon icon="fa-solid fa-blog" />  Blogging </span>
-        <span><font-awesome-icon icon="fa-solid fa-g" />  Google Adsense </span>
-        <span><font-awesome-icon icon="fa-solid fa-wifi" /> Marketing </span>
-        <span><font-awesome-icon icon="fa-solid fa-magnifying-glass" /> SEO </span>
-        <span><font-awesome-icon icon="fa-solid fa-gear" />  Hacks & Tips </span>
-        <span><font-awesome-icon icon="fa-solid fa-bars" /> Web Hosting </span>
-        <span><font-awesome-icon icon="fa-solid fa-w" />  WordPress</span>
+        <span v-for="category in listCategories " > <font-awesome-icon icon="fa-solid fa-xmark" /> {{ category.name }}</span>
     </div>
-  
 </template>
 
-<script>
-
+<script setup>
+import axios from "axios";
+import { ref } from "vue";
+const listCategories = ref([])
+const getCategory = function () {
+    axios.get('http://localhost:3000/categories')
+        .then(function (response) {
+            listCategories.value = response.data;
+        });
+}
+getCategory ();
 </script>
 
 <style scoped> 

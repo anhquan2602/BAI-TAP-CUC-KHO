@@ -39,11 +39,14 @@ const props = defineProps({
     border: 1px solid var(--border);
     margin-bottom: 20px;
 }
-
+a {
+    text-decoration: none;
+}
 .title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-decoration: none;
 }
 
 .more-description {

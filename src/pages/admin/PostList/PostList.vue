@@ -8,16 +8,12 @@
             <table>
                 <tr >
                     <th>Tên bài viết</th>
-                    <th>Ảnh tác giả</th>
-                    <th>Hình ảnh</th>
                     <th>Nội dung</th>
                     <th>Ngày tạo</th>
                     <th class="tool-header">Công cụ</th>
                 </tr>
                 <tr v-for="(post) in listPost" >
                     <td>{{ post.title }}</td>
-                    <td class="image-post"><img :src="post.author" ></td>
-                    <td class="image-post"><img :src="post.image" ></td>
                     <th>{{ post.shortDecription }}</th>
                     <td>{{ post.date }}</td>
                     <td class="tool-header">
@@ -90,8 +86,11 @@ getData();
 
 .main-admin .list-post td,
 .main-admin .list-post th {
+    width: 150px;
     height: 40px;
     padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .tool {

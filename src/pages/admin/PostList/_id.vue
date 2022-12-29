@@ -12,7 +12,6 @@
                 <input type="text" placeholder="Nhập link ảnh" v-model="image">
             </div>
             <div class="content">
-                <!-- <input type="text" placeholder="Nội dung" v-model="content"> -->
                 <ckeditor :editor="editor" v-model="content" :config="editorConfig"></ckeditor>
             </div>
             <div class="date">
