@@ -37,13 +37,12 @@ const routes = [
             { path: 'post-add', component: PostAdd },
             { path: 'categories', component: ListCategories, name : "listcategory" },
             { path: 'categories/add', component: AddCategories },
-            { path: 'categories/:id', component: UpdateCategories }
-
-
-
-            
+            { path: 'categories/:id', component: UpdateCategories }  
         ]
     },
+    {
+        path:'/categories/:id', 
+    }
 ]
 
 const router = createRouter({

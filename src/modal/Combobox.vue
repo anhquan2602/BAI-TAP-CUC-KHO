@@ -1,7 +1,7 @@
 <template>
   <div class="combobox">
     <select name="categories" id="cate">
-      <option v-for="cate in listCategories" value="1">{{ cate.name }}</option>
+      <option v-for="cate in listCategories" :value="cate.id" @click="getValue(cate)">{{ cate.name }}</option>
     </select>
   </div>
 </template>
@@ -24,6 +24,13 @@ const props = defineProps({
     name: String
   }
 })
+const emit = defineEmits(['get-value-id'])
+const getValue = function () {
+  axios.get('http://localhost:3000/categories')
+    .then(function (response) {
+      categories.value =response.data;
+    });
+}
 </script>
 <style>
 .combobox>* {

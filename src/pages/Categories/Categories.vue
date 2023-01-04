@@ -1,7 +1,7 @@
 <template>
     <div class="categories">
         <div class="title">CATEGORIES</div>
-        <span v-for="category in listCategories " > <font-awesome-icon icon="fa-solid fa-xmark" /> {{ category.name }}</span>
+        <span v-for="category in listCategories " > <font-awesome-icon icon="fa-solid fa-xmark" /><router-link :to="`/categories/${category.id}`"> {{ category.name }}</router-link></span>
     </div>
 </template>
 

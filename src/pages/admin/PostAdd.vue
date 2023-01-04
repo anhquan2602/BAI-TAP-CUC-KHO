@@ -17,14 +17,13 @@
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
         <div class="combobox">
-            <Combobox :cate="categories"/>
+            <Combobox @get-value-id="addButton" :cate="categories" />
         </div>
         <div class="add"><router-link to="/"><BUtton @click="addButton()">Thêm</BUtton></router-link></div>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue';
-import { unref } from 'vue';
 import axios from "axios";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Combobox from '../../modal/Combobox.vue';

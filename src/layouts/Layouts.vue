@@ -462,6 +462,7 @@ ul {
 
 .short-description {
     padding: 10px 0;
+    word-wrap: break-word;
 }
 
 .read-more-btn {
