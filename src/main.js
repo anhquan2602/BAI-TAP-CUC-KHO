@@ -3,6 +3,7 @@ import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHashHistory } from 'vue-router';
 import HomePage from './pages/HomePage.vue';
+import HomePageByCategory from './pages/HomePageByCategory.vue'
 import Detail from './pages/Detail.vue';
 import Layouts from './layouts/Layouts.vue';
 import AdminPage from './pages/AdminPage.vue';
@@ -25,8 +26,9 @@ const routes = [
     {
         path: '/', component: Layouts,
         children: [
-            {path: "/", component: HomePage},
-            {path: "/detail/:id", component: Detail},
+            { path: "/", component: HomePage },
+            { path: "/category/:categories", component: HomePageByCategory },
+            { path: "/detail/:id", component: Detail },
         ]
     },
     {
@@ -35,13 +37,13 @@ const routes = [
             { path: '', component: PostList },
             { path: ':id', component: PostUpdate },
             { path: 'post-add', component: PostAdd },
-            { path: 'categories', component: ListCategories, name : "listcategory" },
+            { path: 'categories', component: ListCategories, name: "listcategory" },
             { path: 'categories/add', component: AddCategories },
-            { path: 'categories/:id', component: UpdateCategories }  
+            { path: 'categories/:id', component: UpdateCategories }
         ]
     },
     {
-        path:'/categories/:id', 
+
     }
 ]
 

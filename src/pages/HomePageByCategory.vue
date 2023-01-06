@@ -11,9 +11,8 @@ const arrPost = ref([]);
 const initData = function () {
     callApi();
 }
-
 const callApi = function () {
-    axios.get('http://localhost:3000/posts') // thay như này  axios.get(`http://localhost:3000/posts/${route.params.category}`) là được
+    axios.get(`http://localhost:3000/posts?category=${category.id}`) // thay như này  axios.get(`http://localhost:3000/posts/${route.params.category}`) là được
         .then(function (response) {
             arrPost.value = response.data;
         });

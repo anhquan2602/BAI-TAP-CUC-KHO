@@ -17,7 +17,7 @@
                 <div class="read-more-btn">Đọc thêm</div>
             </div>
         </div>
-    </div>
+    </div> 
 </template>
 <script setup>
 const props = defineProps({

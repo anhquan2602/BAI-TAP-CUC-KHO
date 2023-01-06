@@ -1,13 +1,16 @@
 <template>
     <div class="categories">
         <div class="title">CATEGORIES</div>
-        <span v-for="category in listCategories " > <font-awesome-icon icon="fa-solid fa-xmark" /><router-link :to="`/categories/${category.id}`"> {{ category.name }}</router-link></span>
+        <span v-for="category in listCategories" > <font-awesome-icon icon="fa-solid fa-xmark" /><router-link :to="`/category/${category.id}`">{{ category.name }}</router-link></span>
     </div>
 </template>
 
 <script setup>
+// import { useRouter } from 'vue-router';
 import axios from "axios";
 import { ref } from "vue";
+
+// const router = useRouter();
 const listCategories = ref([])
 const getCategory = function () {
     axios.get('http://localhost:3000/categories')
@@ -16,6 +19,17 @@ const getCategory = function () {
         });
 }
 getCategory ();
+
+
+// const movePage = function(category) {
+//     console.log(router)
+//     router.push({
+//         name: '/',
+//         query: {
+//             categories: category.id
+//         },
+//       })
+// }
 </script>
 
 <style scoped> 

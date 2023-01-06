@@ -17,7 +17,7 @@
             <input type="text" placeholder="Ngày tạo" v-model="date">
         </div>
         <div class="combobox">
-            <Combobox @get-value-id="addButton" :cate="categories" />
+            <Combobox @get-value-id="getValue" />
         </div>
         <div class="add"><router-link to="/"><BUtton @click="addButton()">Thêm</BUtton></router-link></div>
     </div>
@@ -34,7 +34,10 @@ const author = ref('')
 const content = ref('')
 const date = ref('')
 const image = ref('')
-const categories = ref('');
+let categories = ref('');
+const getValue = function(id) {
+    categories = id;
+}
 const addButton = function () {
     axios.post('http://localhost:3000/posts', {
         title: name.value,
@@ -42,11 +45,9 @@ const addButton = function () {
         image: image.value,
         shortDecription: content.value,
         date: date.value,
-        categories : categories.value
+        categories : categories,
     })
         .then(function (response) {
-            let arrTemp = JSON.parse(JSON.stringify(response.data))
-            console.log(categories.value)
             window.location.reload();
         });
 }
